@@ -1,22 +1,23 @@
-﻿#include <iostream>
+#include <iostream>
 #include <vector>
+#include <cmath>
 #include <iomanip>
 
 int main() {
     int n;
-    cin >> n;
+    std::cin >> n;
 
-    vector<double> arr(n);
+    std::vector<double> arr(n);
 
     for (int i = 0; i < n; i++) {
-        cin >> arr[i];
+        std::cin >> arr[i];
     }
 
-    cout << n << endl;
+    std::cout << n << std::endl;
     for (int i = 0; i < n; i++) {
-        cout << fixed << setprecision(3) << arr[i] << " ";
+        std::cout << std::fixed << std::setprecision(3) << arr[i] << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
 
     double sum = 0;
     for (int i = 0; i < n; i++) {
@@ -26,13 +27,13 @@ int main() {
     arr.push_back(sum / n);
 
     for (int i = 0; i < arr.size(); i++) {
-        cout << fixed << setprecision(3) << arr[i] << " ";
+        std::cout << std::fixed << std::setprecision(3) << arr[i] << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
 
     double firstOddAbsolute = 0;
     for (int i = 0; i < arr.size(); i++) {
-        if (static_cast<int>(abs(arr[i])) % 2 == 1) {
+        if (static_cast<int>(std::abs(arr[i])) % 2 == 1) {
             firstOddAbsolute = arr[i];
             break;
         }
@@ -43,34 +44,34 @@ int main() {
     }
 
     for (int i = 0; i < arr.size(); i++) {
-        cout << fixed << setprecision(3) << arr[i] << " ";
+        std::cout << std::fixed << std::setprecision(3) << arr[i] << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
 
     int choice;
-    cin >> choice;
+    std::cin >> choice;
 
     while (choice != 0) {
         if (choice == 1) {
             double newElement;
-            cin >> newElement;
+            std::cin >> newElement;
             arr.push_back(newElement);
-            cout << "+: " << arr.size() << endl;
+            std::cout << "+: " << arr.size() << std::endl;
         }
         else if (choice == 2) {
             if (!arr.empty()) {
                 arr.pop_back();
-                cout << "-: " << arr.size() << endl;
+                std::cout << "-: " << arr.size() << std::endl;
             }
             else {
-                //cout << "Массив пустой, невозможно удалить элемент." << endl;
+                //std::cout << "Массив пустой, невозможно удалить элемент." << std::endl;
             }
         }
 
         for (int i = 0; i < arr.size(); i++) {
-            cout << fixed << setprecision(3) << arr[i] << " ";
+            std::cout << std::fixed << std::setprecision(3) << arr[i] << " ";
         }
-        cout << endl;
+        std::cout << std::endl;
 
         sum = 0;
         for (int i = 0; i < arr.size(); i++) {
@@ -80,13 +81,13 @@ int main() {
         arr.push_back(sum / (arr.size() - 1));
 
         for (int i = 0; i < arr.size(); i++) {
-            cout << fixed << setprecision(3) << arr[i] << " ";
+            std::cout << std::fixed << std::setprecision(3) << arr[i] << " ";
         }
-        cout << endl;
+        std::cout << std::endl;
 
         firstOddAbsolute = 0;
         for (int i = 0; i < arr.size(); i++) {
-            if (static_cast<int>(abs(arr[i])) % 2 == 1) {
+            if (static_cast<int>(std::abs(arr[i])) % 2 == 1) {
                 firstOddAbsolute = arr[i];
                 break;
             }
@@ -97,11 +98,11 @@ int main() {
         }
 
         for (int i = 0; i < arr.size(); i++) {
-            cout << fixed << setprecision(3) << arr[i] << " ";
+            std::cout << std::fixed << std::setprecision(3) << arr[i] << " ";
         }
-        cout << endl;
+        std::cout << std::endl;
 
-        cin >> choice;
+        std::cin >> choice;
     }
 
     return 0;
